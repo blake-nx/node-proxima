@@ -27,8 +27,10 @@ export async function exportEmbeddings(embeddings) {
           {
             id: embedding.fileName,
             values: embedding.embedding,
+            metadata: { originalContent: embedding.content }, // Store file content as metadata
           },
         ]);
+        console.log(`Upserted embedding for ${embedding.fileName}`);
       }
     } catch (error) {
       console.error(`Error exporting to Pinecone DB: ${error.message}`);

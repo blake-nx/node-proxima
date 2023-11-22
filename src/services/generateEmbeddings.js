@@ -28,10 +28,10 @@ export async function generateEmbeddings(fileContents) {
         });
 
         console.log(`Generated embedding for ${name}`);
-
         embeddings.push({
           fileName: name,
           embedding: response.data[0].embedding,
+          content: chunk,
         });
       } catch (error) {
         console.error(
