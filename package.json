@@ -4,6 +4,7 @@
   "description": "Convert your codebase into embeddings using OpenAI",
   "main": "index.js",
   "scripts": {
+    "start": "node src/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Blake Enloe",

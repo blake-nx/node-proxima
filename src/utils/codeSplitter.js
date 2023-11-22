@@ -1,7 +1,16 @@
+/**
+ * Splits the given content into chunks based on maximum token limit
+ *
+ * @param {string} content - The content to be split into chunks.
+ * @param {number} maxTokenLimit - The maximum number of tokens per chunk (default: 7500).
+ * @returns {string[]} An array of content chunks.
+ */
 function splitCode(content, maxTokenLimit = 7500) {
+  // Average number of characters per token
   const avgCharsPerToken = 4;
   const maxCharLimit = maxTokenLimit * avgCharsPerToken;
 
+  // Splitting content into lines
   const lines = content.split("\n");
   let chunks = [];
   let currentChunk = "";
