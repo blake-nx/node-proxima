@@ -5,4 +5,5 @@ module.exports = {
     include: [".jsx", ".tsx", ".js", ".cs", ".py"],
     ignore: [".png", ".env", ".json"],
   },
+  REPO_PATH: "", // path to local repo. can be overridden by command line
 };
