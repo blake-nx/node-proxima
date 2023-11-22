@@ -9,7 +9,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Blake Enloe",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "@pinecone-database/pinecone": "^1.1.2",
     "dotenv": "^16.3.1",
