@@ -10,6 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "@pinecone-database/pinecone": "^1.1.2",
+    "dotenv": "^16.3.1",
     "fast-csv": "^4.3.6",
     "openai": "^4.19.1"
   }

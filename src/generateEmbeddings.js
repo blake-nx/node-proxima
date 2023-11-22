@@ -1,10 +1,10 @@
 // src/embeddings.js
 const OpenAI = require("openai");
-const config = require("./config");
 const { splitCode } = require("./codeSplitter");
+require("dotenv").config();
 
 const openai = new OpenAI({
-  apiKey: config.OPENAI_API_KEY,
+  apiKey: process.env.OPENAI_API_KEY,
 });
 
 async function generateEmbeddings(fileContents) {
