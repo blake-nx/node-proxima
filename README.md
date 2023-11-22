@@ -56,7 +56,7 @@ Additionally, adjust the following settings in the src/config.js file:
 
 Node Proxima is released under the [MIT License](https://opensource.org/license/mit/).
 
-Todos:
+## Todos:
 
 - Add parsing of remote repositories.
 - Add API key and ignore file extension/directory options in the CLI prompt.
