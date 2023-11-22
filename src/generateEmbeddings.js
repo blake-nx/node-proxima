@@ -19,13 +19,15 @@ async function generateEmbeddings(fileContents) {
         input: chunk,
       });
 
+      console.log(`Generated embedding for ${name}`);
+
       embeddings.push({
         fileName: name,
         embedding: response.data[0].embedding,
       });
     }
   }
-  console.log(embeddings);
+
   return embeddings;
 }
 

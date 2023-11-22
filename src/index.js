@@ -1,7 +1,8 @@
 const path = require("path");
 const { readFilesFromDirectory } = require("./fileReader");
 const config = require("./config");
-const { generateEmbeddings } = require("./embeddings");
+const { generateEmbeddings } = require("./generateEmbeddings");
+const { exportEmbeddings } = require("./exportEmbeddings");
 
 async function main() {
   // Check for command-line argument or config for directory path
@@ -15,6 +16,7 @@ async function main() {
 
   const fileContents = await readFilesFromDirectory(dir, config.EXCLUDED_DIRS);
   const embeddings = await generateEmbeddings(fileContents);
+  await exportEmbeddings(embeddings);
 }
 
 main().catch(console.error);

@@ -1,5 +1,4 @@
-// src/codeSplitter.js
-function splitCode(content, maxTokenLimit = 8000) {
+function splitCode(content, maxTokenLimit = 7500) {
   const avgCharsPerToken = 4;
   const maxCharLimit = maxTokenLimit * avgCharsPerToken;
 
