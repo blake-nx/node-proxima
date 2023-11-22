@@ -2,15 +2,30 @@ const { promises: fs } = require("fs");
 const path = require("path");
 const config = require("./config");
 
-async function readFilesFromDirectory(dir) {
+async function readFilesFromDirectory(
+  dir,
+  excludedDirs = config.EXCLUDED_DIRS
+) {
   let fileContents = [];
-  const files = await fs.readdir(dir);
+  const entries = await fs.readdir(dir, { withFileTypes: true });
 
-  for (const file of files) {
-    if (shouldProcessFile(file)) {
-      const filePath = path.join(dir, file);
-      const content = await fs.readFile(filePath, "utf8");
-      fileContents.push({ name: file, content });
+  for (const entry of entries) {
+    // Skip hidden directories (those starting with '.')
+    if (entry.name.startsWith(".")) {
+      continue;
+    }
+
+    const entryPath = path.join(dir, entry.name);
+
+    if (entry.isDirectory()) {
+      if (!excludedDirs.includes(entry.name)) {
+        fileContents = fileContents.concat(
+          await readFilesFromDirectory(entryPath, excludedDirs)
+        );
+      }
+    } else if (shouldProcessFile(entry.name)) {
+      const content = await fs.readFile(entryPath, "utf8");
+      fileContents.push({ name: entry.name, content, path: entryPath });
     }
   }
 
