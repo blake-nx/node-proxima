@@ -1,6 +1,6 @@
 <div align="center">
 
-![Proxima Logo](https://github.com/blake-nx/node-proxima/assets/109250745/1dce27b2-c9b0-4817-b489-60f12cd86799)
+![Proxima Logo](https://i.imgur.com/dHVNujZ.png)
 
 # Node Proxima - Convert Codebases to AI Embeddings
   
