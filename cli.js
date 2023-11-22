@@ -1,3 +1,6 @@
+import inquirer from "inquirer";
+import { main } from "./src/index.js";
+
 /**
  * Starts the CLI and prompts the user for input.
  */
