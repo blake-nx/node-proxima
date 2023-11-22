@@ -1,6 +1,6 @@
-const { promises: fs } = require("fs");
-const path = require("path");
-const config = require("./config");
+import fs from "fs/promises";
+import path from "path";
+import { config } from "./config.js";
 
 /**
  * Recursively reads files from a directory, excluding specified directories.
@@ -9,7 +9,7 @@ const config = require("./config");
  * @param {string[]} excludedDirs - An array of directories to exclude.
  * @returns {Promise<Array>} An array of objects, each containing the file name, content, and path.
  */
-async function readFilesFromDirectory(
+export async function readFilesFromDirectory(
   dir,
   excludedDirs = config.EXCLUDED_DIRS
 ) {
@@ -57,5 +57,3 @@ function shouldProcessFile(filename) {
       !config.FILE_EXTENSIONS.ignore.includes(ext))
   );
 }
-
-module.exports = { readFilesFromDirectory };

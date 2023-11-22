@@ -1,12 +1,12 @@
-const path = require("path");
-const { readFilesFromDirectory } = require("./fileReader");
-const config = require("./config");
-const { generateEmbeddings } = require("./services/generateEmbeddings");
-const { exportEmbeddings } = require("./services/exportEmbeddings");
+import path from "path";
+import { readFilesFromDirectory } from "./fileReader.js";
+import { config } from "./config.js";
+import { generateEmbeddings } from "./services/generateEmbeddings.js";
+import { exportEmbeddings } from "./services/exportEmbeddings.js";
 
-async function main() {
+export async function main(repoPath) {
   // Resolve the directory path from command-line argument or from the config file
-  const dir = path.resolve(process.argv[2] || config.REPO_PATH);
+  const dir = path.resolve(repoPath || config.REPO_PATH);
 
   // Check if the resolved directory path is valid
   if (!dir || dir === ".") {
@@ -26,8 +26,3 @@ async function main() {
   // Export the generated embeddings
   await exportEmbeddings(embeddings);
 }
-
-// Run the main function and catch any unhandled errors
-main().catch((error) => {
-  console.error("An error occurred:", error.message);
-});

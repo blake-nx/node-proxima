@@ -1,6 +1,7 @@
-const OpenAI = require("openai");
-const { splitCode } = require("../utils/codeSplitter");
-require("dotenv").config();
+import { OpenAI } from "openai";
+import { splitCode } from "../utils/codeSplitter.js";
+import dotenv from "dotenv";
+dotenv.config();
 
 // Initialize OpenAI client with API key from environment variables
 const openai = new OpenAI({
@@ -13,7 +14,7 @@ const openai = new OpenAI({
  * @param {Array<Object>} fileContents - An array of objects containing file names and content.
  * @returns {Promise<Array>} An array of objects, each containing a file name and its embeddings.
  */
-async function generateEmbeddings(fileContents) {
+export async function generateEmbeddings(fileContents) {
   const embeddings = [];
 
   for (const { name, content } of fileContents) {
@@ -42,5 +43,3 @@ async function generateEmbeddings(fileContents) {
 
   return embeddings;
 }
-
-module.exports = { generateEmbeddings };

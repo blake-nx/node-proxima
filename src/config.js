@@ -1,4 +1,4 @@
-module.exports = {
+export const config = {
   EXCLUDED_DIRS: ["node_modules", "build"], // ignore these directories
   FILE_EXTENSIONS: {
     include: [".jsx", ".tsx", ".ts", ".js", ".cs", ".py"],

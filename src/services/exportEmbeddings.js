@@ -1,14 +1,15 @@
-const { Pinecone } = require("@pinecone-database/pinecone");
-const fs = require("fs");
-const fastcsv = require("fast-csv");
-require("dotenv").config();
+import { Pinecone } from "@pinecone-database/pinecone";
+import fs from "fs";
+import fastcsv from "fast-csv";
+import dotenv from "dotenv";
+dotenv.config();
 
 /**
  * Exports embeddings to Pinecone DB or to a CSV file.
  *
  * @param {Array<Object>} embeddings - An array of embedding objects.
  */
-async function exportEmbeddings(embeddings) {
+export async function exportEmbeddings(embeddings) {
   // Check if Pinecone API key is available for Pinecone DB storage
   if (process.env.PINECONE_API_KEY) {
     // Initialize Pinecone client
@@ -43,5 +44,3 @@ async function exportEmbeddings(embeddings) {
     }
   }
 }
-
-module.exports = { exportEmbeddings };

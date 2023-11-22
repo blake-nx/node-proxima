@@ -5,7 +5,7 @@
  * @param {number} maxTokenLimit - The maximum number of tokens per chunk (default: 7500).
  * @returns {string[]} An array of content chunks.
  */
-function splitCode(content, maxTokenLimit = 7500) {
+export function splitCode(content, maxTokenLimit = 7500) {
   // Average number of characters per token
   const avgCharsPerToken = 4;
   const maxCharLimit = maxTokenLimit * avgCharsPerToken;
@@ -38,5 +38,3 @@ function splitCode(content, maxTokenLimit = 7500) {
 
   return chunks;
 }
-
-module.exports = { splitCode };
