@@ -1,0 +1,11 @@
+{
+  "name": "proxima",
+  "version": "1.0.0",
+  "description": "Convert your codebase into embeddings using OpenAI",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Blake Enloe",
+  "license": "ISC"
+}
