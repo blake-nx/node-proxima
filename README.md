@@ -1,4 +1,10 @@
-# Node Proxima:
+<div align="center">
+
+![Proxima Logo](https://i.imgur.com/dHVNujZ.png)
+
+# Node Proxima - Convert Codebases to AI Embeddings
+  
+</div>
 
 ## Description
 
@@ -37,20 +43,30 @@ The CLI will prompt you to enter the absolute path to the repository you wish to
 
 Configure Node Proxima by setting up a .env file in the root directory with the following variables:
 
-- OPENAI_API_KEY: Your OpenAI API key for generating embeddings.
-- PINECONE_API_KEY: (Optional) Your Pinecone API key if using Pinecone as the vector database.
+- `OPENAI_API_KEY`: Your OpenAI API key for generating embeddings.
+- `PINECONE_API_KEY`: (Optional) Your Pinecone API key if using Pinecone as the vector database.
+- `PINECONE_INDEX_NAME`: Set the Pinecone index name if using Pinecone for storage.
 
-Additionally, adjust the following settings in the src/config.js file:
+Additionally, adjust the following settings in the `src/config.js` file:
 
-- FILE_EXTENSIONS: Specify which file extensions to include or ignore during processing.
-- EXCLUDED_DIRS: Define directories to exclude, such as node_modules.
-- PINECONE_INDEX_NAME: Set the Pinecone index name if using Pinecone for storage.
+`FILE_EXTENSIONS`: An object with include and ignore arrays to specify which file extensions should be processed or ignored.
+```javascript
+FILE_EXTENSIONS: {
+  include: ['.js','.jsx','.ts','.py'],
+  ignore: [".env", ".json"]
+}
+```
+
+`EXCLUDED_DIRS`: An array of directory names to exclude from processing, such as node_modules.
+```javascript
+EXCLUDED_DIRS: ['node_modules', 'test']
+```
 
 ## License
 
 Node Proxima is released under the [MIT License](https://opensource.org/license/mit/).
 
-Todos:
+## Todos:
 
 - Add parsing of remote repositories.
 - Add API key and ignore file extension/directory options in the CLI prompt.
